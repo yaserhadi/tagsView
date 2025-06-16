@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Left Menu with Recent Tags</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; }
+  .container { display: flex; min-height: 100vh; }
+  .left-menu {
+    width: 180px;
+    background: #000;
+    padding: 12px;
+  }
+  .menu-item {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+  }
+  .menu-item.active {
+    background: #fff;
+    color: #000;
+  }
+  .main-content {
+    flex-grow: 1;
+    padding: 16px;
+  }
+  .tags-view-wrapper {
+    margin-bottom: 12px;
+    height: 32px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+  }
+  .tags-view-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 27px;
+    line-height: 26px;
+    padding: 0 8px;
+    font-size: 12px;
+    background: #fff;
+    border: 1px solid #d8dce5;
+    color: #495060;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+  .tags-view-item.active {
+    background: #42b983;
+    border-color: #42b983;
+    color: #fff;
+  }
+  .tags-view-item .close {
+    margin-left: 4px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left-menu">
+    <a href="#home" class="menu-item">Home</a>
+    <a href="#about" class="menu-item">About</a>
+    <a href="#contact" class="menu-item">Contact</a>
+  </div>
+
+  <div class="main-content">
+    <div class="tags-view-wrapper"></div>
+    <p id="hint">Select a menu item.</p>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="tagsView.js"></script>
+</body>
+</html>
