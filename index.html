@@ -53,10 +53,24 @@
     border-color: #42b983;
     color: #fff;
   }
-  .tags-view-item .close {
-    margin-left: 4px;
-    cursor: pointer;
-  }
+.tags-view-item .close {
+  margin-left: 4px;
+  cursor: pointer;
+}
+.tags-view-item .pin {
+  margin-left: 4px;
+  cursor: pointer;
+}
+.tags-view-item.pinned .pin {
+  color: #ff9900;
+}
+.tags-view-placeholder {
+  border: 1px dashed #d8dce5;
+  background: #f0f0f0;
+  border-radius: 3px;
+  margin-right: 5px;
+  visibility: visible !important;
+}
 </style>
 </head>
 <body>
@@ -75,6 +89,8 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
 <script src="tagsView.js"></script>
 </body>
 </html>

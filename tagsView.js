@@ -1,6 +1,23 @@
 $(function () {
   var visited = [];
 
+  function refreshVisited() {
+    visited = $('.tags-view-item').map(function () {
+      return { path: $(this).data('path'), title: $(this).data('title') };
+    }).get();
+  }
+
+  $.getScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js', function () {
+    $('.tags-view-wrapper').sortable({
+      items: '.tags-view-item',
+      tolerance: 'pointer',
+      placeholder: 'tags-view-placeholder',
+      forcePlaceholderSize: true,
+      revert: 100,
+      stop: refreshVisited
+    }).disableSelection();
+  });
+
   $('.menu-item').on('click', function (e) {
     e.preventDefault();
     var path  = $(this).attr('href');
