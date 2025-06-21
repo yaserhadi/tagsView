@@ -21,6 +21,14 @@ body { font-family: Arial, sans-serif; margin: 0; }
 .main-content {
   flex-grow: 1;
   padding: 16px;
+  padding-top: 48px;
+}
+.tags-view-container {
+  position: fixed;
+  top: 0;
+  left: 204px;
+  right: 0;
+  z-index: 1;
 }
 .tags-view-wrapper {
   margin-bottom: 12px;
