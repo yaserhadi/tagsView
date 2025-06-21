@@ -27,6 +27,16 @@ $(function () {
     console.error('jQuery UI not loaded. Sortable disabled.');
   }
 
+  $('.scroll-button.left').on('click', function () {
+    var $scroll = $('.tags-view-scroll');
+    $scroll.animate({ scrollLeft: '-=100' }, 100);
+  });
+
+  $('.scroll-button.right').on('click', function () {
+    var $scroll = $('.tags-view-scroll');
+    $scroll.animate({ scrollLeft: '+=100' }, 100);
+  });
+
   $('.menu-item').on('click', function (e) {
     e.preventDefault();
     var path  = $(this).attr('href');

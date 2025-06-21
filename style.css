@@ -29,8 +29,18 @@ body { font-family: Arial, sans-serif; margin: 0; }
   left: 204px;
   right: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+}
+.tags-view-scroll {
   overflow-x: auto;
   overflow-y: hidden;
+  flex: 1;
+}
+.scroll-button {
+  cursor: pointer;
+  padding: 0 8px;
+  user-select: none;
 }
 .tags-view-wrapper {
   margin-bottom: 12px;
