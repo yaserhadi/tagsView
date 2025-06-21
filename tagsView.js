@@ -79,6 +79,16 @@ $(function () {
     $contextMenu.hide();
   });
 
+  $('.scroll-btn.left').on('click', function () {
+    var $wrap = $('.tags-view-wrapper');
+    $wrap.animate({ scrollLeft: $wrap.scrollLeft() - 120 }, 200);
+  });
+
+  $('.scroll-btn.right').on('click', function () {
+    var $wrap = $('.tags-view-wrapper');
+    $wrap.animate({ scrollLeft: $wrap.scrollLeft() + 120 }, 200);
+  });
+
   $contextMenu.on('click', 'li', function () {
     var action = $(this).data('action');
     if (action === 'font') {

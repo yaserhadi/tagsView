@@ -22,13 +22,30 @@ body { font-family: Arial, sans-serif; margin: 0; }
   flex-grow: 1;
   padding: 16px;
 }
-.tags-view-wrapper {
+.tags-view-container {
   margin-bottom: 12px;
   height: 32px;
   background: #eee;
   display: flex;
   align-items: center;
+}
+
+.tags-view-wrapper {
+  flex: 1;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
   padding-left: 8px;
+}
+
+.scroll-btn {
+  width: 24px;
+  height: 32px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
 }
 .tags-view-item {
   display: inline-block;
