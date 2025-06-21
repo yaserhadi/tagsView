@@ -14,7 +14,7 @@ $(function () {
     }).get();
   }
 
-  $.getScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js', function () {
+  if ($.fn.sortable) {
     $('.tags-view-wrapper').sortable({
       items: '.tags-view-item',
       tolerance: 'pointer',
@@ -23,7 +23,9 @@ $(function () {
       revert: 100,
       stop: refreshVisited
     }).disableSelection();
-  });
+  } else {
+    console.error('jQuery UI not loaded. Sortable disabled.');
+  }
 
   $('.menu-item').on('click', function (e) {
     e.preventDefault();
