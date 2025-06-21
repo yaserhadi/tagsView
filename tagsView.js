@@ -8,6 +8,21 @@ $(function () {
     '</ul>').appendTo('body').hide();
   var $menuTarget = null;
 
+  function updateScrollButtons() {
+    var $scroll = $('.tags-view-scroll');
+    var scrollWidth = $scroll.get(0).scrollWidth;
+    var clientWidth = $scroll.get(0).clientWidth;
+    var scrollLeft = $scroll.scrollLeft();
+
+    if (scrollWidth > clientWidth) {
+      $('.scroll-button').show();
+      $('.scroll-button.left').toggle(scrollLeft > 0);
+      $('.scroll-button.right').toggle(scrollLeft + clientWidth < scrollWidth);
+    } else {
+      $('.scroll-button').hide();
+    }
+  }
+
   function refreshVisited() {
     visited = $('.tags-view-item').map(function () {
       return { path: $(this).data('path'), title: $(this).data('title') };
@@ -21,7 +36,10 @@ $(function () {
       placeholder: 'tags-view-placeholder',
       forcePlaceholderSize: true,
       revert: 100,
-      stop: refreshVisited
+      stop: function () {
+        refreshVisited();
+        updateScrollButtons();
+      }
     }).disableSelection();
   } else {
     console.error('jQuery UI not loaded. Sortable disabled.');
@@ -29,12 +47,12 @@ $(function () {
 
   $('.scroll-button.left').on('click', function () {
     var $scroll = $('.tags-view-scroll');
-    $scroll.animate({ scrollLeft: '-=100' }, 100);
+    $scroll.animate({ scrollLeft: '-=100' }, 100, updateScrollButtons);
   });
 
   $('.scroll-button.right').on('click', function () {
     var $scroll = $('.tags-view-scroll');
-    $scroll.animate({ scrollLeft: '+=100' }, 100);
+    $scroll.animate({ scrollLeft: '+=100' }, 100, updateScrollButtons);
   });
 
   $('.menu-item').on('click', function (e) {
@@ -51,6 +69,7 @@ $(function () {
         '<span class="tags-view-item" data-path="'+path+'" data-title="'+title+'">'+
           title+' <span class="close">×</span></span>'
       );
+      updateScrollButtons();
     }
     setActiveTag(path);
     $('#hint').text('The selected page is ' + title);
@@ -63,6 +82,7 @@ $(function () {
       var path = $tag.data('path');
       visited = visited.filter(v => v.path !== path);
       $tag.remove();
+      updateScrollButtons();
     })
     .on('contextmenu', '.tags-view-item', function (e) {
       e.preventDefault();
@@ -104,7 +124,12 @@ $(function () {
     } else if (action === 'close-all') {
       visited = [];
       $('.tags-view-wrapper').empty();
+      updateScrollButtons();
     }
     $contextMenu.hide();
   });
+
+  $('.tags-view-scroll').on('scroll', updateScrollButtons);
+  $(window).on('resize', updateScrollButtons);
+  updateScrollButtons();
 });
