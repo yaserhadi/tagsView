@@ -1,5 +1,6 @@
 $(function () {
   var visited = [];
+  var $wrapper = $('.tags-view-wrapper');
 
   var $contextMenu = $('<ul class="context-menu">\n' +
     '  <li data-action="font">Font Color</li>\n' +
@@ -15,7 +16,7 @@ $(function () {
   }
 
   $.getScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js', function () {
-    $('.tags-view-wrapper').sortable({
+    $wrapper.sortable({
       items: '.tags-view-item',
       tolerance: 'pointer',
       placeholder: 'tags-view-placeholder',
@@ -35,7 +36,7 @@ $(function () {
 
     if (!visited.some(v => v.path === path)) {
       visited.push({ path, title });
-      $('.tags-view-wrapper').append(
+      $wrapper.append(
         '<span class="tags-view-item" data-path="'+path+'" data-title="'+title+'">'+
           title+' <span class="close">×</span></span>'
       );
@@ -91,8 +92,27 @@ $(function () {
       }
     } else if (action === 'close-all') {
       visited = [];
-      $('.tags-view-wrapper').empty();
+      $wrapper.empty();
     }
     $contextMenu.hide();
   });
+
+  function updateButtons() {
+    var scrollLeft = $wrapper.scrollLeft();
+    var maxScroll = $wrapper[0].scrollWidth - $wrapper.innerWidth();
+    $('.scroll-left').toggle(scrollLeft > 0);
+    $('.scroll-right').toggle(scrollLeft < maxScroll);
+  }
+
+  $('.scroll-left').on('click', function () {
+    $wrapper.animate({ scrollLeft: '-=100' }, 200, updateButtons);
+  });
+
+  $('.scroll-right').on('click', function () {
+    $wrapper.animate({ scrollLeft: '+=100' }, 200, updateButtons);
+  });
+
+  $wrapper.on('scroll', updateButtons);
+
+  updateButtons();
 });

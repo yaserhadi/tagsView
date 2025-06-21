@@ -28,14 +28,34 @@
     flex-grow: 1;
     padding: 16px;
   }
-  .tags-view-wrapper {
+  .tags-view-container {
+    position: relative;
     margin-bottom: 12px;
     height: 32px;
     background: #eee;
+  }
+  .tags-view-wrapper {
+    height: 32px;
+    white-space: nowrap;
+    overflow-x: auto;
     display: flex;
     align-items: center;
     padding-left: 8px;
   }
+  .scroll-left,
+  .scroll-right {
+    position: absolute;
+    top: 0;
+    width: 24px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .scroll-left { left: 0; }
+  .scroll-right { right: 0; }
   .tags-view-item {
     display: inline-block;
     position: relative;
@@ -119,7 +139,11 @@
   </div>
 
   <div class="main-content">
-    <div class="tags-view-wrapper"></div>
+    <div class="tags-view-container">
+      <span class="scroll-left">&#9664;</span>
+      <div class="tags-view-wrapper"></div>
+      <span class="scroll-right">&#9654;</span>
+    </div>
     <p id="hint">Select a menu item.</p>
   </div>
 </div>
