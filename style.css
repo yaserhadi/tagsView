@@ -1,22 +1,24 @@
-body { font-family: Arial, sans-serif; margin: 0; }
-.container { display: flex; min-height: 100vh; }
+body {
+  font-family: var(--bs-body-font-family);
+  margin: 0;
+}
 .left-menu {
   width: 180px;
-  background: #000;
+  background: #212529;
   padding: 12px;
   height: 100vh;
   overflow-y: auto;
 }
 .menu-item {
   display: block;
-  color: #fff;
+  color: #f8f9fa;
   text-decoration: none;
   padding: 6px 8px;
   margin-bottom: 6px;
 }
 .menu-item.active {
-  background: #fff;
-  color: #000;
+  background: #f8f9fa;
+  color: #212529;
 }
 .main-content {
   flex-grow: 1;
@@ -41,12 +43,13 @@ body { font-family: Arial, sans-serif; margin: 0; }
   display: none;
   cursor: pointer;
   padding: 0 8px;
+  color: #0d6efd;
   user-select: none;
 }
 .tags-view-wrapper {
   margin-bottom: 12px;
   height: 32px;
-  background: #eee;
+  background: #e9ecef;
   display: flex;
   align-items: center;
   padding-left: 8px;
@@ -61,17 +64,17 @@ body { font-family: Arial, sans-serif; margin: 0; }
   line-height: 26px;
   padding: 0 8px;
   font-size: 12px;
-  background: #fff;
-  border: 1px solid #d8dce5;
-  color: #495060;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  color: #212529;
   margin-right: 5px;
   border-radius: 3px;
   flex-shrink: 0;
 }
 .tags-view-item.active {
-  background: #42b983;
-  border-color: #42b983;
-  color: #fff;
+  background: #0d6efd;
+  border-color: #0d6efd;
+  color: #ffffff;
 }
 .tags-view-item .close {
   margin-left: 4px;
@@ -82,19 +85,19 @@ body { font-family: Arial, sans-serif; margin: 0; }
   cursor: pointer;
 }
 .tags-view-item.pinned .pin {
-  color: #ff9900;
+  color: #ffc107;
 }
 .tags-view-placeholder {
-  border: 1px dashed #d8dce5;
-  background: #f0f0f0;
+  border: 1px dashed #dee2e6;
+  background: #f8f9fa;
   border-radius: 3px;
   margin-right: 5px;
   visibility: visible !important;
 }
 .context-menu {
   position: absolute;
-  background: #fff;
-  border: 1px solid #ccc;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -106,5 +109,5 @@ body { font-family: Arial, sans-serif; margin: 0; }
   white-space: nowrap;
 }
 .context-menu li:hover {
-  background: #eee;
+  background: #e9ecef;
 }
