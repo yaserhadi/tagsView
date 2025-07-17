@@ -8,27 +8,27 @@
 <body>
 
 <div class="container">
-  <div class="left-menu">
-    <a href="#home" class="menu-item">Home</a>
-    <a href="#about" class="menu-item">About</a>
-    <a href="#contact" class="menu-item">Contact</a>
-    <a href="#page4" class="menu-item">Page 4</a>
-    <a href="#page5" class="menu-item">Page 5</a>
-    <a href="#page6" class="menu-item">Page 6</a>
-    <a href="#page7" class="menu-item">Page 7</a>
-    <a href="#page8" class="menu-item">Page 8</a>
-    <a href="#page9" class="menu-item">Page 9</a>
-    <a href="#page10" class="menu-item">Page 10</a>
-    <a href="#page11" class="menu-item">Page 11</a>
-    <a href="#page12" class="menu-item">Page 12</a>
-    <a href="#page13" class="menu-item">Page 13</a>
-    <a href="#page14" class="menu-item">Page 14</a>
-    <a href="#page15" class="menu-item">Page 15</a>
-    <a href="#page16" class="menu-item">Page 16</a>
-    <a href="#page17" class="menu-item">Page 17</a>
-    <a href="#page18" class="menu-item">Page 18</a>
-    <a href="#page19" class="menu-item">Page 19</a>
-    <a href="#page20" class="menu-item">Page 20</a>
+  <div id="sidebar" class="left-menu">
+    <a href="#home" class="nav-item">Home</a>
+    <a href="#about" class="nav-item">About</a>
+    <a href="#contact" class="nav-item">Contact</a>
+    <a href="#page4" class="nav-item">Page 4</a>
+    <a href="#page5" class="nav-item">Page 5</a>
+    <a href="#page6" class="nav-item">Page 6</a>
+    <a href="#page7" class="nav-item">Page 7</a>
+    <a href="#page8" class="nav-item">Page 8</a>
+    <a href="#page9" class="nav-item">Page 9</a>
+    <a href="#page10" class="nav-item">Page 10</a>
+    <a href="#page11" class="nav-item">Page 11</a>
+    <a href="#page12" class="nav-item">Page 12</a>
+    <a href="#page13" class="nav-item">Page 13</a>
+    <a href="#page14" class="nav-item">Page 14</a>
+    <a href="#page15" class="nav-item">Page 15</a>
+    <a href="#page16" class="nav-item">Page 16</a>
+    <a href="#page17" class="nav-item">Page 17</a>
+    <a href="#page18" class="nav-item">Page 18</a>
+    <a href="#page19" class="nav-item">Page 19</a>
+    <a href="#page20" class="nav-item">Page 20</a>
   </div>
 
     <div class="main-content">
@@ -47,5 +47,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
 <script src="tagsView.js"></script>
+<script>
+  initTagsView({menuItemSelector: '.nav-item', leftMenuSelector: '#sidebar'});
+</script>
 </body>
 </html>

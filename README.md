@@ -10,4 +10,6 @@ tags at once.
 ## How to open
 
 No build step is required. Simply open `index.html` in a web browser or serve
-the repository with any static file server.
+the repository with any static file server. The page calls
+`initTagsView({menuItemSelector: '.nav-item', leftMenuSelector: '#sidebar'})`
+after loading `tagsView.js`.
