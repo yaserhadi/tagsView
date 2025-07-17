@@ -1,5 +1,11 @@
-$(function () {
+function initTagsView(options) {
+  options = options || {};
+  var menuItemSelector = options.menuItemSelector || '.menu-item';
+  var leftMenuSelector = options.leftMenuSelector || '.left-menu';
+
   var visited = [];
+
+  $('.tags-view-container').css('left', $(leftMenuSelector).outerWidth(true));
 
   var $contextMenu = $('<ul class="context-menu">\n' +
     '  <li data-action="font">Font Color</li>\n' +
@@ -55,12 +61,12 @@ $(function () {
     $scroll.animate({ scrollLeft: '+=100' }, 100, updateScrollButtons);
   });
 
-  $('.menu-item').on('click', function (e) {
+  $(menuItemSelector).on('click', function (e) {
     e.preventDefault();
     var path  = $(this).attr('href');
     var title = $(this).text();
 
-    $('.menu-item').removeClass('active');
+    $(menuItemSelector).removeClass('active');
     $(this).addClass('active');
 
     if (!visited.some(v => v.path === path)) {
@@ -93,8 +99,8 @@ $(function () {
       var path  = $(this).data('path');
       var title = $(this).data('title');
 
-      $('.menu-item').removeClass('active');
-      $('.menu-item[href="'+path+'"]').addClass('active');
+      $(menuItemSelector).removeClass('active');
+      $(menuItemSelector+'[href="'+path+'"]').addClass('active');
 
       setActiveTag(path);
       $('#hint').text('The selected page is ' + title);
@@ -132,4 +138,6 @@ $(function () {
   $('.tags-view-scroll').on('scroll', updateScrollButtons);
   $(window).on('resize', updateScrollButtons);
   updateScrollButtons();
-});
+}
+
+window.initTagsView = initTagsView;
