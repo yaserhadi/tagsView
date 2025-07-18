@@ -7,9 +7,13 @@ or its close icon allows switching between or removing visited pages.
 Right-click any tag to change its font color, background color, or to close all
 tags at once.
 
+The reusable JavaScript and CSS live in the `src` directory. The `examples`
+folder contains an HTML file demonstrating how to use them.
+
 ## How to open
 
-No build step is required. Simply open `index.html` in a web browser or serve
-the repository with any static file server. The page calls
+No build step is required. Open `examples/index.html` in a web browser or serve
+the repository with any static file server. The demo page includes the
+JavaScript and CSS from the `src` folder and calls
 `initTagsView({menuItemSelector: '.nav-item', leftMenuSelector: '#sidebar'})`
-after loading `tagsView.js`.
+after loading `src/tagsView.js`.
